@@ -1,5 +1,5 @@
 {
-  "name": "teatime",
+  "name": "@framorim/teatime",
   "version": "0.0.1",
   "description": "TeaTime is a Job Schedule! Don't miss your tea!",
   "main": "index.js",
