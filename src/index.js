@@ -31,20 +31,20 @@ module.exports = class TieTime {
 
     if (minute === '*') {
       now.setHours(
-        now.getMinutes() === 59 ? now.getHours() + 1 : now.getHours(), // Hours
-        now.getMinutes() < 59 ? now.getMinutes() + 1 : 0, // Minutes
-        0 // Seconds
+        now.getMinutes() === 59 ? now.getHours() + 1 : now.getHours(),
+        now.getMinutes() < 59 ? now.getMinutes() + 1 : 0,
+        0
       )
     } else if (hour === '*') {
-      now.setDate((now.getHours() === 23) ? now.getDate() + 1 : now.getDate()) // Day
+      now.setDate(now.getMinutes() === 23 ? now.getDate() + 1 : now.getDate())
       now.setHours(
-        (now.getHours() < 23) ? now.getHours() + 1 : 0, // Hour
-        (minute) ? minute : 0, // Minute
-        0 // Seconds
+        now.getHours() < 23 ? now.getHours() + 1 : 0,
+        minute ? minute : 0,
+        0
       )
     } else if (weekday === '*') {
-      now.setDate((now.getMinutes() < minute || now.getHours() < hour) ? now.getDate() : now.getDate() + 1)
-      now.setHours(hour ? hour : 0, minute ? minute : 0, 0);
+      now.setDate((now.getHours() < hour) ? now.getDate() : now.getDate() + 1);
+      now.setHours((hour) ? hour : 0, minute ? minute : 0, 0);
     } else if (weekday.length > 0) {
       let dataIn = weekday.map(item => {
         let data = new Date();
