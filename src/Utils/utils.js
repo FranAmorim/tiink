@@ -3,7 +3,7 @@
 * @param {Object} time
 * @param {number|string} time.minute
 * @param {number|string} time.hour
-* @param {number|string} time.weekday
+* @param {number[]|string} time.weekday
 */
 
 const getTime = (time) => {
@@ -21,12 +21,12 @@ const getTime = (time) => {
     now.setDate(now.getMinutes() === 23 ? now.getDate() + 1 : now.getDate());
     now.setHours(
       now.getHours() < 23 ? now.getHours() + 1 : 0,
-      minute ? minute : 0,
+      minute || 0,
       0,
     );
   } else if (weekday === '*') {
     now.setDate((now.getHours() < hour) ? now.getDate() : now.getDate() + 1);
-    now.setHours(hour ? hour : 0, minute != null ? minute : 0, 0);
+    now.setHours(hour || 0, minute || 0, 0);
   } else if (weekday.length > 0) {
     const dataIn = weekday.map((item) => {
       const data = new Date();
@@ -42,5 +42,6 @@ const getTime = (time) => {
 };
 
 export {
+  // eslint-disable-next-line
   getTime,
 };
