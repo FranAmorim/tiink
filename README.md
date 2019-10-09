@@ -3,7 +3,7 @@
 TeaTime is a simple Job Schedule for NodeJS.
 Don't miss your tea!
 
-### 1 Installation:
+### Installation:
 
 ```sh
 npm install @framorim/teatime --save
@@ -13,7 +13,7 @@ or
 npm install -g @framorim/teatime 
 ```
 
-### 2 Usage:
+### Usage:
 Import the module into your project
 
 ```javascript
