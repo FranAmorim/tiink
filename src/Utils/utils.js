@@ -1,11 +1,11 @@
 /**
-* Return number of milliseconds for the expected time.
-* @param {Object} time
-* @param {number|string} time.minute
-* @param {number|string} time.hour
-* @param {number[]|string} time.weekday
-*/
-
+ * Return number of milliseconds for the expected time.
+ *
+ * @param {Object} time
+ * @param {number|string} time.minute
+ * @param {number|string} time.hour
+ * @param {number[]|string} time.weekday
+ */
 const getTime = (time) => {
   const { minute, hour, weekday } = time;
   let now = new Date();
@@ -33,6 +33,7 @@ const getTime = (time) => {
       if (data.getDay() === item) {
         return data.setDate(data.getDate() + ((7 - data.getDay()) % 7) + item);
       }
+
       return data.setDate(data.getDate() + ((7 + item - data.getDay()) % 7));
     });
     now = new Date(Math.min(...dataIn));
@@ -42,6 +43,5 @@ const getTime = (time) => {
 };
 
 export {
-  // eslint-disable-next-line
   getTime,
 };
