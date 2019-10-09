@@ -1,3 +1,7 @@
+<p align="center">
+<img width="250" height="250" src="https://github.com/FranAmorim/teatime/blob/develop/extra/teatime.jpg">
+</p>
+
 # TeaTime
 
 TeaTime is a simple Job Schedule for NodeJS.
@@ -8,9 +12,9 @@ Don't miss your tea!
 ```sh
 npm install @framorim/teatime --save
 ```
-or 
+or
 ```sh
-npm install -g @framorim/teatime 
+npm install -g @framorim/teatime
 ```
 
 ### Usage:
@@ -26,9 +30,9 @@ const schedule = new TeaTime();
 ```
 
 ```javascript
-const options = { 
-  hour: 3, 
-  weekday: '*' 
+const options = {
+  hour: 3,
+  weekday: '*'
 };
 
 schedule.addJob('<JOB_NAME>', options, async () => {
