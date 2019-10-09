@@ -1,4 +1,4 @@
-module.exports = class TieTime {
+module.exports = class TeaTime {
   constructor() {
     this.jobs = {}
   }
