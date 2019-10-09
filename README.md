@@ -6,7 +6,7 @@ Don't miss your tea!
 ### 1 Installation:
 
 ```sh
-npm install @framorim/teatime 
+npm install @framorim/teatime --save
 ```
 or 
 ```sh
