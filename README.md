@@ -3,13 +3,17 @@
 TeaTime is a simple Job Schedule for NodeJS.
 Don't miss your tea!
 
-### Installation:
+### 1 Installation:
 
 ```sh
-npm install @framorim/teatime
+npm install @framorim/teatime 
+```
+or 
+```sh
+npm install -g @framorim/teatime 
 ```
 
-### Usage:
+### 2 Usage:
 Import the module into your project
 
 ```javascript
@@ -31,15 +35,15 @@ schedule.addJob('<JOB_NAME>', options, async () => {
   /*...YOUR LOGIC GOES HERE ...*/
 });
 ```
-
-##### Methods:
+### Specifications:
+#### Methods:
 | Methods       | Description                                     | Ready |
 | ------------- |:------------------------------------------------|:-----:|
 | addJob()      | Used to create a Job                            |   ✓   |
 | stopJob()     | Stops a Job but doesn't remove from the manager |   ✓   |
 | removeJob()   | Stops and Removes a Job from the Manager        |   ✗   |
 
-##### Options:
+#### Options:
 | Option   | Description  |
 | -------- |:-------------|
 | minute   |              |
