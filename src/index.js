@@ -32,6 +32,6 @@ export class TeaTime {
   }
 
   deleteJob(name) {
-    delete this.jobs.delete(name);
+    this.jobs.delete(name);
   }
 }
