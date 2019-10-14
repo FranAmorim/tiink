@@ -29,6 +29,6 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "files": [
-    "/src"
+    "/lib"
   ]
 }
