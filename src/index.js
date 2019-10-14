@@ -2,35 +2,36 @@ import { getTime } from './utils/utils';
 
 export class TeaTime {
   constructor() {
-    this.jobs = {};
+    this.jobs = new Map();
   }
 
   addJob(name, time, method) {
-    if (name in this.jobs && 'action' in this.jobs[name]) {
+    if (this.jobs.has(name) && 'action' in this.jobs.get(name)) {
       clearTimeout(this.jobs[name].action);
     }
-    this.jobs[name] = {
+
+    this.jobs.set(name, {
       time,
       action: this.setJob(name, time, method),
-    };
+    });
   }
 
   setJob(name, time, method) {
     return setTimeout(() => {
       method();
-      this.jobs[name].action = this.setJob(name, time, method);
+      this.jobs.get(name).action = this.setJob(name, time, method);
     }, getTime(time));
   }
 
   stopJob(name) {
-    clearTimeout(this.jobs[name].action);
+    clearTimeout(this.jobs.get(name).action);
   }
 
   restartJob(name) {
-    this.jobs[name].action();
+    this.jobs.get(name).action();
   }
 
   deleteJob(name) {
-    delete this.jobs[name];
+    delete this.jobs.delete(name);
   }
 }
