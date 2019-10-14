@@ -22,7 +22,15 @@ export class TeaTime {
     }, getTime(time));
   }
 
-  stopJob(jobName) {
-    clearTimeout(this.jobs[jobName].action);
+  stopJob(name) {
+    clearTimeout(this.jobs[name].action);
+  }
+
+  restartJob(name) {
+    this.jobs[name].action();
+  }
+
+  deleteJob(name) {
+    delete this.jobs[name];
   }
 }
