@@ -1,6 +1,6 @@
-import { getTime } from './Utils/utils';
+import { getTime } from './utils/utils';
 
-module.exports = class TeaTime {
+export class TeaTime {
   constructor() {
     this.jobs = {};
   }
@@ -25,4 +25,4 @@ module.exports = class TeaTime {
   stopJob(jobName) {
     clearTimeout(this.jobs[jobName].action);
   }
-};
+}
