@@ -7,8 +7,11 @@
  * @param {number[]|string} time.weekday
  */
 const getTime = (time) => {
+  return getTimeRelativeTo(time);
+};
+
+const getTimeRelativeTo = (time, now = new Date()) => {
   const { minute, hour, weekday } = time;
-  let now = new Date();
   const timestamp = now.getTime();
 
   if (minute === '*') {
@@ -29,7 +32,7 @@ const getTime = (time) => {
     now.setHours(hour || 0, minute || 0, 0);
   } else if (weekday.length > 0) {
     const dataIn = weekday.map((item) => {
-      const data = new Date();
+      const data = new Date(now);
       if (data.getDay() === item) {
         return data.setDate(data.getDate() + ((7 - data.getDay()) % 7) + item);
       }
@@ -40,8 +43,9 @@ const getTime = (time) => {
   }
 
   return now.getTime() - timestamp;
-};
+}
 
 export {
   getTime,
+  getTimeRelativeTo,
 };
