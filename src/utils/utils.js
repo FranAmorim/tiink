@@ -1,10 +1,12 @@
 /**
- * Return number of milliseconds for the expected time.
+ * @description Computes time
  *
- * @param {Object} time
+ * @param {Object} time 
  * @param {number|string} time.minute
  * @param {number|string} time.hour
  * @param {number[]|string} time.weekday
+ * 
+ * @returns {number} Expected time in milliseconds
  */
 const getTime = (time) => {
   const { minute, hour, weekday } = time;

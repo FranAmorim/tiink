@@ -40,16 +40,19 @@ schedule.addJob('<JOB_NAME>', options, async () => {
 });
 ```
 ### Specifications:
+
 #### Methods:
 | Methods       | Description                                     | Ready |
 | ------------- |:------------------------------------------------|:-----:|
-| addJob()      | Used to create a Job                            |   ✓   |
-| stopJob()     | Stops a Job but doesn't remove from the manager |   ✓   |
-| removeJob()   | Stops and Removes a Job from the Manager        |   ✗   |
+| addJob()      | Creates a job in the manager                    |   ✓   |
+| stopJob()     | Only stops a job in the manager                 |   ✓   |
+| deleteJob()   | Deletes a job from the manager                  |   ✓   |
+| setJob()      | Sets a job in the manager                       |   ✓   |
+| restartJob()  | Restarts job in the manager                     |   ✓   |
 
 #### Options:
-| Option   | Description  |
-| -------- |:-------------|
-| minute   |              |
-| hour     |              |
-| weekday  |              |
+| Option   | Description                               |
+| -------- |:------------------------------------------|
+| minute   |     Represents minute in numbers          |
+| hour     |     Represents hour in numbers            |
+| weekday  |     Represents weekday in numbers         |
