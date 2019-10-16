@@ -4,6 +4,7 @@ export class TeaTime {
   constructor() {
     this.jobs = new Map();
   }
+  
   /**
    * @description Adds a job
    * @param {String} name Job name
@@ -17,7 +18,7 @@ export class TeaTime {
 
     this.jobs.set(name, {
       time,
-      action: this.setJob(name, time, method)
+      action: this.setJob(name, time, method),
     });
   }
 

@@ -46,7 +46,7 @@ schedule.addJob('<JOB_NAME>', options, async () => {
 | ------------- |:------------------------------------------------|:-----:|
 | addJob()      | Creates a job in the manager                    |   ✓   |
 | stopJob()     | Only stops a job in the manager                 |   ✓   |
-| removeJob()   | Stops & removes a job from the manager          |   ✓   |
+| deleteJob()   | Deletes a job from the manager                  |   ✓   |
 | setJob()      | Sets a job in the manager                       |   ✓   |
 | restartJob()  | Restarts job in the manager                     |   ✓   |
 

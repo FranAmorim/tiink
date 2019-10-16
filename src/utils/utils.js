@@ -45,5 +45,5 @@ const getTime = (time) => {
 };
 
 export {
-  getTime
+  getTime,
 };
