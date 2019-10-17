@@ -7,6 +7,7 @@ export class TeaTime {
   
   /**
    * @description Adds a job
+   *
    * @param {String} name Job name
    * @param {Object} time Time consists of day, minute, hour
    * @param {Function} method Function invoked when adding a job
@@ -24,6 +25,7 @@ export class TeaTime {
 
   /**
    * @description Sets a job
+   *
    * @param {String} name Job name
    * @param {Object} time Time consists of day, minute, hour
    * @param {Function} method Function invoked when setting a job
@@ -37,6 +39,7 @@ export class TeaTime {
 
   /**
    * @description Stops a job
+   *
    * @param {String} name Job name
    */
   stopJob(name) {
@@ -45,6 +48,7 @@ export class TeaTime {
 
   /**
    * @description Restarts a job
+   *
    * @param {String} name Job name
    */
   restartJob(name) {
@@ -53,6 +57,7 @@ export class TeaTime {
 
   /**
    * @description Deletes a job
+   *
    * @param {String} name Job name
    */
   deleteJob(name) {
