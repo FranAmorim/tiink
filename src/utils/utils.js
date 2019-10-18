@@ -10,39 +10,40 @@ const getTime = (time) => {
   return getTimeRelativeTo(time);
 };
 
-const getTimeRelativeTo = (time, now = new Date()) => {
+const getTimeRelativeTo = (time, target = new Date()) => {
   const { minute, hour, weekday } = time;
-  const timestamp = now.getTime();
+  const targetDate = new Date(target);
+  const timestamp = targetDate.getTime();
 
   if (minute === '*') {
-    now.setHours(
-      now.getMinutes() === 59 ? now.getHours() + 1 : now.getHours(),
-      now.getMinutes() < 59 ? now.getMinutes() + 1 : 0,
-      0,
-    );
+    targetDate.setMinutes(targetDate.getMinutes() + 1);
   } else if (hour === '*') {
-    now.setDate(now.getMinutes() === 23 ? now.getDate() + 1 : now.getDate());
-    now.setHours(
-      now.getHours() < 23 ? now.getHours() + 1 : 0,
-      minute || 0,
-      0,
-    );
+    targetDate.setHours(targetDate.getHours() + 1);
   } else if (weekday === '*') {
-    now.setDate((now.getHours() < hour) ? now.getDate() : now.getDate() + 1);
-    now.setHours(hour || 0, minute || 0, 0);
-  } else if (weekday.length > 0) {
-    const dataIn = weekday.map((item) => {
-      const data = new Date(now);
-      if (data.getDay() === item) {
-        return data.setDate(data.getDate() + ((7 - data.getDay()) % 7) + item);
-      }
+    targetDate.setDate(targetDate.getDate() + 1);
+  } else if (Array.isArray(weekday) && weekday.length > 0) {
+    const safeTargetWeekdays = Array
+      .from(new Set(weekday.map((day) => parseInt(day, 10))))
+      .filter((targetWeekday) => targetWeekday >= 0 && targetWeekday <= 6)
+      .sort();
+    const nextDays = safeTargetWeekdays.filter((targetWeekday) => targetWeekday > targetDate.getDay());
 
-      return data.setDate(data.getDate() + ((7 + item - data.getDay()) % 7));
-    });
-    now = new Date(Math.min(...dataIn));
+    // console.log();
+    // console.log(targetDate, targetDate.getDay(), '»»»', nextDays, ' «» ', safeTargetWeekdays);
+    if (nextDays.length > 0) {
+      // set date to next requested day
+      // console.log('nextDays', targetDate, targetDate.getDate(), targetDate.getDay(), nextDays[0]);
+      targetDate.setDate(targetDate.getDate() + nextDays[0] - targetDate.getDay());
+      // console.log('nextDays - result', targetDate, targetDate.getTime() - timestamp);
+    } else {
+      // set date to next first requested day, but from next week
+      // console.log('safeTargetDays', targetDate, targetDate.getDate(), targetDate.getDay(), safeTargetWeekdays[0], ' +7');
+      targetDate.setDate(targetDate.getDate() + safeTargetWeekdays[0] - targetDate.getDay() + 7);
+      // console.log('safeTargetDays - result', targetDate, targetDate.getTime() - timestamp);
+    }
   }
 
-  return now.getTime() - timestamp;
+  return targetDate.getTime() - timestamp;
 }
 
 export {
