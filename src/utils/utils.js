@@ -28,18 +28,12 @@ const getTimeRelativeTo = (time, target = new Date()) => {
       .sort();
     const nextDays = safeTargetWeekdays.filter((targetWeekday) => targetWeekday > targetDate.getDay());
 
-    // console.log();
-    // console.log(targetDate, targetDate.getDay(), '»»»', nextDays, ' «» ', safeTargetWeekdays);
     if (nextDays.length > 0) {
       // set date to next requested day
-      // console.log('nextDays', targetDate, targetDate.getDate(), targetDate.getDay(), nextDays[0]);
       targetDate.setDate(targetDate.getDate() + nextDays[0] - targetDate.getDay());
-      // console.log('nextDays - result', targetDate, targetDate.getTime() - timestamp);
     } else {
       // set date to next first requested day, but from next week
-      // console.log('safeTargetDays', targetDate, targetDate.getDate(), targetDate.getDay(), safeTargetWeekdays[0], ' +7');
       targetDate.setDate(targetDate.getDate() + safeTargetWeekdays[0] - targetDate.getDay() + 7);
-      // console.log('safeTargetDays - result', targetDate, targetDate.getTime() - timestamp);
     }
   }
 
