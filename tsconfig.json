@@ -4,6 +4,7 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
+    "declaration": true,
     "strict": true,
     "target": "ESNext",
     "module": "ESNext",
