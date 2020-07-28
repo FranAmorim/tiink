@@ -1,8 +1,8 @@
 <p align="center">
-<img width="250" height="250" src="https://github.com/FranAmorim/teatime/blob/develop/extra/teatime.jpg">
+<img width="550" height="300" src="https://github.com/FranAmorim/teatime/blob/develop/extra/tiink.png">
 </p>
 
-# TeaTime
+# Tiink
 
 TeaTime is a simple Job Schedule for NodeJS.
 Don't miss your tea!
@@ -10,23 +10,23 @@ Don't miss your tea!
 ### Installation:
 
 ```sh
-npm install @framorim/teatime --save
+npm install tiink --save
 ```
 or
 ```sh
-npm install -g @framorim/teatime
+npm install -g tiink
 ```
 
 ### Usage:
 Import the module into your project
 
 ```javascript
-const TeaTime = require('@framorim/teatime')
+const TeaTime = require('tiink')
 ```
 
 Create a new TeaTime
 ```javascript
-const schedule = new TeaTime();
+const schedule = new Tiink();
 ```
 
 ```javascript

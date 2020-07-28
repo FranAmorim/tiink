@@ -1,5 +1,5 @@
 {
-  "name": "@framorim/teatime",
+  "name": "tiink",
   "version": "0.0.3",
   "description": "TeaTime is a Job Schedule! Don't miss your tea!",
   "main": "lib/index.js",
@@ -7,9 +7,9 @@
   "type": "module",
   "author": "Francisco Amorim",
   "license": "MIT",
-  "repository": "FranAmorim/teatime",
+  "repository": "FranAmorim/tiink",
   "keywords": [
-    "teatime",
+    "tiink",
     "npm",
     "package",
     "framorim"
