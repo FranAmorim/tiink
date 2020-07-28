@@ -1,5 +1,5 @@
 <p align="center">
-<img width="250" height="250" src="https://github.com/FranAmorim/teatime/blob/develop/extra/teatime.jpg">
+<img width="250" height="250" src="https://github.com/FranAmorim/teatime/blob/develop/extra/tiink.png">
 </p>
 
 # TeaTime
