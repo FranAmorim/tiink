@@ -1,6 +1,6 @@
 import { getTime } from './utils/utils';
 
-export class TeaTime {
+export class Tiink {
   constructor() {
     this.jobs = new Map();
   }
