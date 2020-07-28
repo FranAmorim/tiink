@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "TeaTime is a Job Schedule! Don't miss your tea!",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "type": "module",
   "author": "Francisco Amorim",
   "license": "MIT",
@@ -15,7 +16,8 @@
   ],
   "scripts": {
     "lint": "eslint src",
-    "build": "babel src -d lib",
+    "build": "tsc ./src",
+    "prepublish": "tsc",
     "prapare": "npm run build",
     "test": "jest"
   },

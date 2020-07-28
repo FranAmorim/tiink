@@ -1,18 +1,10 @@
-/**
- * @description Computes time
- *
- * @param {Object} time 
- * @param {number|string} time.minute
- * @param {number|string} time.hour
- * @param {number[]|string} time.weekday
- * 
- * @returns {number} Expected time in milliseconds
- */
-const getTime = (time) => {
+import { JobTime } from '../types';
+
+const getTime = (time: JobTime) => {
   return getTimeRelativeTo(time);
 };
 
-const getTimeRelativeTo = (time, target = new Date()) => {
+const getTimeRelativeTo = (time: JobTime, target: Date = new Date()) => {
   const { minute, hour, weekday } = time;
   const targetDate = new Date(target);
   const timestamp = targetDate.getTime();
