@@ -1,7 +1,7 @@
 import { getTime } from './utils/utils';
 import {Job, JobTime, JobAction} from './types';
 
-export class TeaTime {
+export class Tiink {
   private jobs: Map<string, Job> = new Map();
   
   addJob(name: string, time: JobTime, method: Function): void {
