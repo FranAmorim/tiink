@@ -1,8 +1,9 @@
 {
   "name": "tiink",
-  "version": "0.0.3",
-  "description": "TeaTime is a Job Schedule! Don't miss your tea!",
+  "version": "1.0.0",
+  "description": "Tiink is a Job Schedule!",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "type": "module",
   "author": "Francisco Amorim",
   "license": "MIT",
@@ -14,23 +15,14 @@
     "framorim"
   ],
   "scripts": {
-    "lint": "eslint src",
-    "build": "babel src -d lib",
-    "prapare": "npm run build",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/node": "^7.6.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
-    "@babel/preset-env": "^7.6.3",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "jest": "^24.9.0"
+    "build": "tsc",
+    "prepublish": "tsc",
+    "prapare": "npm run build"
   },
   "files": [
     "/lib"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
 }
