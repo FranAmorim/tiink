@@ -1,7 +1,6 @@
 export type JobTime = {
-  minute?: string ;
+  minute?: string;
   hour?: string;
-  day?: string;
   weekday?: string;
 }
 
