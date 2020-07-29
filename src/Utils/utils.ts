@@ -17,10 +17,10 @@ const getTimeRelativeTo = (time: JobTime, target: Date = new Date()) => {
     targetDate.setDate(targetDate.getDate() + 1);
   } else if (Array.isArray(weekday) && weekday.length > 0) {
     const safeTargetWeekdays = Array
-      .from(new Set(weekday.map((day) => parseInt(day, 10))))
-      .filter((targetWeekday) => targetWeekday >= 0 && targetWeekday <= 6)
+      .from(new Set(weekday.map((day: any) => parseInt(day, 10))))
+      .filter((targetWeekday: any) => targetWeekday >= 0 && targetWeekday <= 6)
       .sort();
-    const nextDays = safeTargetWeekdays.filter((targetWeekday) => targetWeekday > targetDate.getDay());
+    const nextDays = safeTargetWeekdays.filter((targetWeekday: any) => targetWeekday > targetDate.getDay());
 
     if (nextDays.length > 0) {
       // set date to next requested day
