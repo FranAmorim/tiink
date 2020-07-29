@@ -4,29 +4,26 @@
 
 # Tiink
 
-TeaTime is a simple Job Schedule for NodeJS.
-Don't miss your tea!
+Tiink is a simple Job Schedule for NodeJS.
 
 ### Installation:
 
 ```sh
 npm install tiink --save
 ```
-or
-```sh
-npm install -g tiink
-```
 
 ### Usage:
 Import the module into your project
 
 ```javascript
-const TeaTime = require('tiink')
+const Tiink = require('tiink');
+// OR
+import { Tiink } from 'tiink';
 ```
 
 Create a new TeaTime
 ```javascript
-const schedule = new Tiink();
+const manager = new Tiink();
 ```
 
 ```javascript
@@ -35,7 +32,7 @@ const options = {
   weekday: '*'
 };
 
-schedule.addJob('<JOB_NAME>', options, async () => {
+manager.addJob('<JOB_NAME>', options, async () => {
   /*...YOUR LOGIC GOES HERE ...*/
 });
 ```
@@ -47,7 +44,6 @@ schedule.addJob('<JOB_NAME>', options, async () => {
 | addJob()      | Creates a job in the manager                    |   ✓   |
 | stopJob()     | Only stops a job in the manager                 |   ✓   |
 | deleteJob()   | Deletes a job from the manager                  |   ✓   |
-| setJob()      | Sets a job in the manager                       |   ✓   |
 | restartJob()  | Restarts job in the manager                     |   ✓   |
 
 #### Options:
