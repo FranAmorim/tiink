@@ -1,10 +1,12 @@
 {
   "name": "tiink",
-  "version": "1.0.2",
-  "description": "Tiink is a Job Schedule!",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "type": "module",
+  "version": "1.0.3",
+  "description": "Tiink is NodeJS Job Schedule!",
+  "main": "lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": [
+    "lib/"
+  ],
   "author": "Francisco Amorim",
   "license": "MIT",
   "repository": "FranAmorim/tiink",
@@ -12,16 +14,14 @@
     "tiink",
     "npm",
     "package",
+    "diink",
     "framorim"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "prepublish": "tsc",
     "prapare": "npm run build"
   },
-  "files": [
-    "/lib"
-  ],
   "devDependencies": {
     "typescript": "^3.9.7"
   }
