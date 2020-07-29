@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
+    "target": "es2015",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./lib/esm",
+    "declaration": true,
+    
     "alwaysStrict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strict": true,
-    "declaration": true,
-    "declarationDir": "./lib/types",
-    "target": "ESNext",
-    "module": "ESNext",
-    "outDir": "./lib/",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
   },
+  "include": [
+    "./src"
+  ],
   "exclude": [
     "node_modules",
     "lib"
