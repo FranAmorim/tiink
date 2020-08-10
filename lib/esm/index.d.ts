@@ -1,5 +1,5 @@
-import { JobTime, JobAction } from './types';
-export declare class Tiink {
+import { Job, JobTime, JobAction } from './types';
+declare class Tiink {
     private jobs;
     addJob(name: string, time: JobTime, method: Function): void;
     setJobAction(name: string, time: JobTime, method: Function): JobAction;
@@ -7,3 +7,4 @@ export declare class Tiink {
     restartJob(name: string): void;
     deleteJob(name: string): void;
 }
+export { Tiink, Job, JobTime, JobAction };

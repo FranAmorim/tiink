@@ -1,9 +1,9 @@
 import { getTime } from './utils/utils';
-import {Job, JobTime, JobAction} from './types';
+import { Job, JobTime, JobAction } from './types';
 
-export class Tiink {
+class Tiink {
   private jobs: Map<string, Job> = new Map();
-  
+
   addJob(name: string, time: JobTime, method: Function): void {
     const job = this.jobs.get(name);
     if (job && job.action.running) {
@@ -24,10 +24,10 @@ export class Tiink {
       timeout: setTimeout(() => {
         method();
         const job = this.jobs.get(name);
-        if(this.jobs.has(name) && job) {
+        if (this.jobs.has(name) && job) {
           job.action = this.setJobAction(name, time, method);
         }
-      
+
       }, getTime(time))
     }
   }
@@ -53,4 +53,11 @@ export class Tiink {
   deleteJob(name: string): void {
     this.jobs.delete(name);
   }
+}
+
+export {
+  Tiink,
+  Job,
+  JobTime,
+  JobAction
 }
