@@ -9,32 +9,53 @@ const getTimeRelativeTo = (time: JobTime, target: Date = new Date()) => {
   const targetDate = new Date(target);
   const timestamp = targetDate.getTime();
 
-  if (minute === '*') {
-    targetDate.setMinutes(targetDate.getMinutes() + 1);
-  } else if (hour === '*') {
-    targetDate.setHours(targetDate.getHours() + 1);
-  } else if (weekday === '*') {
-    targetDate.setDate(targetDate.getDate() + 1);
-  } else if (Array.isArray(weekday) && weekday.length > 0) {
-    const safeTargetWeekdays = Array
-      .from(new Set(weekday.map((day: any) => parseInt(day, 10))))
-      .filter((targetWeekday: any) => targetWeekday >= 0 && targetWeekday <= 6)
-      .sort();
-    const nextDays = safeTargetWeekdays.filter((targetWeekday: any) => targetWeekday > targetDate.getDay());
+  const toHour = (hour === '*') ? targetDate.getHours() + 1 : hour as number;
+  const toMinute = (minute === '*') ? targetDate.getMinutes() + 1 : minute as number;
 
-    if (nextDays.length > 0) {
-      // set date to next requested day
-      targetDate.setDate(targetDate.getDate() + nextDays[0] - targetDate.getDay());
-    } else {
-      // set date to next first requested day, but from next week
-      targetDate.setDate(targetDate.getDate() + safeTargetWeekdays[0] - targetDate.getDay() + 7);
-    }
+  if (toHour > targetDate.getHours()
+    || !(toHour === targetDate.getHours() && toMinute > targetDate.getMinutes())) {
+    targetDate.setDate(getDay(targetDate, weekday));
   }
 
-  return targetDate.getTime() - timestamp;
+  const finalDate = new Date(Date.UTC(
+    targetDate.getFullYear(),
+    targetDate.getMonth(),
+    targetDate.getDate(),
+    toHour,
+    toMinute,
+    0,
+    0,
+  ));
+
+  return (finalDate.getTime() + (finalDate.getTimezoneOffset() * 60000)) - timestamp;
+}
+
+const getDay = (
+  targetDate: Date,
+  weekdayOpts: number[] | string = '*',
+): number => {
+  if (weekdayOpts !== '*') {
+    if (Array.isArray(weekdayOpts) && weekdayOpts.length > 0) {
+      const safeTargetWeekdays = Array
+        .from(new Set(weekdayOpts.map((day: any) => parseInt(day, 10))))
+        .filter((targetWeekday: any) => targetWeekday >= 0 && targetWeekday <= 6)
+        .sort();
+      const nextDays = safeTargetWeekdays.filter((targetWeekday: any) => targetWeekday > targetDate.getDay());
+
+      if (nextDays.length > 0) {
+        // set date to next requested day
+        return targetDate.getDate() + nextDays[0] - targetDate.getDay();
+      } else {
+        // set date to next first requested day, but from next week
+        return targetDate.getDate() + safeTargetWeekdays[0] - targetDate.getDay() + 7;
+      }
+    }
+  }
+  return targetDate.getDate() + 1;
 }
 
 export {
   getTime,
   getTimeRelativeTo,
+  getDay
 };

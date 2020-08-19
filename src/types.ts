@@ -1,7 +1,7 @@
 export type JobTime = {
-  minute?: string;
-  hour?: string;
-  weekday?: string;
+  minute: number | string;
+  hour: number | string;
+  weekday: number[] | string;
 }
 
 export type JobAction = {
@@ -14,4 +14,10 @@ export type Job = {
   time: JobTime;
   method: Function;
   action: JobAction;
+}
+
+
+export enum Weekday {
+  Saturday = 'Saturday',
+  Friday = 'Friday',
 }

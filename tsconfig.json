@@ -2,11 +2,16 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "ESNext",
+    "declaration": true,
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ],
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "./lib/esm",
+    "outDir": "./lib",
     "declaration": true,
-    
     "alwaysStrict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
@@ -20,6 +25,7 @@
   ],
   "exclude": [
     "node_modules",
-    "lib"
+    "lib",
+    "./src/**/*.test.js"
   ]
 }
