@@ -1,7 +1,7 @@
-export type JobTime = {
+export interface JobTime {
   minute: number | string;
   hour: number | string;
-  weekday: number[] | string;
+  weekday: number[];
 }
 
 export type JobAction = {
@@ -9,15 +9,20 @@ export type JobAction = {
   timeout: ReturnType<typeof setTimeout>;
 }
 
-export type Job = {
+export interface Job {
   name: string;
   time: JobTime;
-  method: Function;
-  action: JobAction;
+  repeat: boolean;
+  method?: () => void;
+  action?: JobAction;
 }
 
-
 export enum Weekday {
-  Saturday = 'Saturday',
+  Monday = 'Monday',
+  Tuesday = 'Tuesday',
+  Wednesday = 'Wednesday',
+  Thursday = 'Thursday',
   Friday = 'Friday',
+  Saturday = 'Saturday',
+  Sunday = 'Sunday',
 }

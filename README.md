@@ -29,7 +29,7 @@ const manager = new Tiink();
 ```javascript
 const options = {
   hour: 3,
-  weekday: '*'
+  weekday: []
 };
 
 manager.addJob('<JOB_NAME>', options, async () => {

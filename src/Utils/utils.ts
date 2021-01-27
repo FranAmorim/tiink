@@ -32,9 +32,9 @@ const getTimeRelativeTo = (time: JobTime, target: Date = new Date()) => {
 
 const getDay = (
   targetDate: Date,
-  weekdayOpts: number[] | string = '*',
+  weekdayOpts: number[] = [],
 ): number => {
-  if (weekdayOpts !== '*') {
+  if (weekdayOpts.length > 0) {
     if (Array.isArray(weekdayOpts) && weekdayOpts.length > 0) {
       const safeTargetWeekdays = Array
         .from(new Set(weekdayOpts.map((day: any) => parseInt(day, 10))))

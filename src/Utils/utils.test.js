@@ -9,7 +9,7 @@ const job = {
   weekday: '*',
 }
 
-test('JRun Job in 10min (600000ms)', () => {
+test('Run Job in 10min (600000ms)', () => {
   expect(getTimeRelativeTo(job, date)).toBe(600000);
 });
 
